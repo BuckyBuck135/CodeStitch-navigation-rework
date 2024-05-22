@@ -23,7 +23,9 @@
         <!--Navigation List-->
         <nav class="cs-nav" role="navigation">
             <!--Mobile Nav Toggle-->
-            <button class="cs-toggle" aria-label="mobile menu toggle">
+            <!-- <button class="cs-toggle" aria-label="mobile menu toggle"> -->
+                <button class="cs-toggle" id="mobile-menu-toggle" aria-expanded="false"  aria-controls="cs-expanded-ul" aria-label="mobile menu" title="mobile menu toggle">
+
                 <div class="cs-box" aria-hidden="true">
                     <span class="cs-line cs-line1" aria-hidden="true"></span>
                     <span class="cs-line cs-line2" aria-hidden="true"></span>
@@ -34,37 +36,61 @@
             <div class="cs-ul-wrapper">
                 <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
                     <li class="cs-li">
-                        <a href="" class="cs-li-link cs-active">
+                        <a 
+                            href="" 
+                            class="cs-li-link cs-active"
+                            aria-current="page"
+                            aria-label="Home"
+                        >
                             Home
                         </a>
                     </li>
                     <li class="cs-li">
-                        <a href="" class="cs-li-link">
+                        <a href="" class="cs-li-link" aria-label="About">
                             About
                         </a>
                     </li>
                     <!--Copy and paste this cs-dropdown list item and replace any .cs-li with this cs-dropdown group to make a new dropdown and it will work-->
-                    <li class="cs-li cs-dropdown" tabindex="0">
-                        <span class="cs-li-link">
+                    <li class="cs-li cs-dropdown" >
+                        <!-- <span class="cs-li-link">
                             Services
                             <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/down-gold.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
-                        </span>
-                        <ul class="cs-drop-ul">
+                        </span> -->
+                        <button
+                            aria-expanded="false"
+                            aria-controls="dropdown-services"
+                            title="dropdown-button"
+                            aria-label="dropdown-services"
+                            class="cs-li-link cs-dropdown-button"
+                        >
+                          Services
+                          <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/down-gold.svg" alt="" width="15" height="15" decoding="async" aria-hidden="true">
+                        </button>
+        
+                        <!-- <ul class="cs-drop-ul">
                             <li class="cs-drop-li">
                                 <a href="" class="cs-li-link cs-drop-link">Registration</a>
                             </li>
                             <li class="cs-drop-li">
                                 <a href="" class="cs-li-link cs-drop-link">Our Classes</a>
                             </li>
+                        </ul> -->
+                        <ul id="dropdown-services" class="cs-drop-ul">
+                            <li class="cs-drop-li">
+                                <a href="" class="cs-li-link cs-drop-link" aria-label="Registration">Registration</a>
+                            </li>
+                            <li class="cs-drop-li">
+                                <a href="" class="cs-li-link cs-drop-link" aria-label="Our Classes">Our Classes</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="cs-li">
-                        <a href="" class="cs-li-link">
+                        <a href="" class="cs-li-link" aria-label="Blog">
                             Blog
                         </a>
                     </li>
                     <li class="cs-li">
-                        <a href="" class="cs-li-link">
+                        <a href="" class="cs-li-link" aria-label="Contact">
                             Contact
                         </a>
                     </li>
