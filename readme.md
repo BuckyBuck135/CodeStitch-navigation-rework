@@ -9,17 +9,16 @@
 A button that opens a widget should have aria-controls set to the id of the expandable widget and aria-expanded set to the current state of the widget.
 [Source](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-expanded)
 
-Added a `<title>` for the extra tooltip
-Added an 1id` for JS control
+Added an `id` for JS control
 
-`<button class="cs-toggle" id="mobile-menu-toggle" aria-expanded="false"  aria-controls="cs-expanded-ul" title="mobile menu toggle">`
+`<button class="cs-toggle" id="mobile-menu-toggle" aria-expanded="false"  aria-controls="cs-expanded-ul">`
 
 2. Removed `aria-expanded=""` from   <ul id="cs-expanded" class="cs-ul">
 
 As seen above, aria-expanded should be on the interactive element
 
 
-3. Added `aria-current="page"` on active page
+3. Added `aria-current="page"` on active page. it can be used for accessibility, but also for styling the list item of the current page (job that is currently carried out by `.cs-active`)
 
 4. Dropdown menus
 
@@ -27,12 +26,17 @@ We use a `button` element instead of a `<span>` for better semantics and focus h
 
 We remove `tabIndex` from `<li class="cs-li cs-dropdown" tabindex="0">` as the button will be automatically focused
 
-We leave an empty string on the alt of the icon
-
 Added an `id` to `<ul id="dropdown-services" class="cs-drop-ul">` for the button's `aria-controls`
 
-5. Added `aria-label` on <a> - note: You don't need to add "button" in the label as screen readers already announce an element's role.
-[Source](https://www.aditus.io/aria/aria-label/)
+5. `aria-label` is not necessary  when the text content of the <a> tag (or any other element) is already descriptive enough to convey its purpose to users, including those using assistive technologies.
+
+6. Removed ` alt="logo"` on all `cs-social-icon`, `cs-logo`, `cs-drop-icon`  Since the images are hidden with the aria-hidden attribute, the alt text is redundant in two ways:
+  * the alt text will never be read by screen readers
+  * if they were read, they would provide no descriptive meaning because all of them have "logo" as the text.
+
+7. Added `aria-label` on all `cs-social-link`. Since the link contains only an image which is hidden from screen readers (aria-hidden="true"), there's no accessible text for the screen reader to announce. Adding an aria-label attribute will describe the purpose of the link to users of assistive technologies.
+
+8. Removed `role="navigation"` from the nav element. The nav element is already a landmark element for navigation, which means it is inherently recognized by assistive technologies as a navigation region. Therefore, it is not necessary to explicitly add role="navigation" to a nav element.
 
 ## index.css
 
